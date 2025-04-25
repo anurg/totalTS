@@ -1,17 +1,20 @@
-import { generateText} from "ai"
-import { openai } from "@ai-sdk/openai"
+import { generateText } from "ai";
 import dotenv from "dotenv"
-const model = openai("gpt-4o")
+import { openai } from "@ai-sdk/openai";
 
 dotenv.config()
+// console.log(process.env.TAVILY_API_KEY)
+const model = openai("gpt-4o")
 
-export const answerMyQuestion = async (prompt:string)=> {
+const generateAnswer = async (prompt : string) => {
     const {text} = await generateText({
         model:model,
         prompt:prompt
     })
     return text
 }
+const result = await generateAnswer("Explain React in 10 sentences.")
+console.log(result)
 
-const answer = await answerMyQuestion("what is the chemical formula for dihydrogen monoxide?")
-console.log(answer)
+
+
