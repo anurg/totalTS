@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { generateText } from "ai";
 import dotenv from "dotenv"
 import { openai } from "@ai-sdk/openai";
@@ -18,3 +19,12 @@ console.log(result)
 
 
 
+=======
+
+
+  const scores: Record<string,number> = {};
+  
+  scores.math = 95;
+  scores.english = 90;
+  scores.science = 85;
+>>>>>>> df46133 (TS Practice)
