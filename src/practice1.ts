@@ -1,33 +1,26 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { generateText } from "ai";
-import dotenv from "dotenv"
-import { openai } from "@ai-sdk/openai";
-
-dotenv.config()
-// console.log(process.env.TAVILY_API_KEY)
-const model = openai("gpt-4o")
-
-const generateAnswer = async (prompt : string) => {
-    const {text} = await generateText({
-        model:model,
-        prompt:prompt
-    })
-    return text
+interface Logger {
+  log(message: string, level: number): void;
+  a:string;
 }
-const result = await generateAnswer("Explain React in 10 sentences.")
-console.log(result)
 
+interface Logger {
+  log(message: string): void;
+  b:number;
+}
 
+const myLogger: Logger = {
+  log: (message: string, level?: number) => {
+    if (level !== undefined) {
+      console.log(message, level);
+    } else {
+      console.log(message);
+    }
+  },
+  a:"",
+  b:2
+};
 
-=======
-
-
-  const scores: Record<string,number> = {};
-  
-  scores.math = 95;
-  scores.english = 90;
-  scores.science = 85;
->>>>>>> df46133 (TS Practice)
-=======
->>>>>>> 0d83e9a (....)
+myLogger.log(
+  "My message",
+  123
+);
