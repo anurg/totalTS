@@ -1,26 +1,34 @@
-interface Logger {
-  log(message: string, level: number): void;
-  a:string;
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
 }
+type PartialProduct = Partial<Product>;
 
-interface Logger {
-  log(message: string): void;
-  b:number;
-}
-
-const myLogger: Logger = {
-  log: (message: string, level?: number) => {
-    if (level !== undefined) {
-      console.log(message, level);
-    } else {
-      console.log(message);
-    }
-  },
-  a:"",
-  b:2
+const updateProduct = (id: number, productInfo: PartialProduct) => {
+  // Do something with the productInfo
 };
+updateProduct(1, { // red squiggly line under the entire object
+  name: "Book",
+});
 
-myLogger.log(
-  "My message",
-  123
-);
+updateProduct(1, { // red squiggly line under the entire object
+  price: 12.99,
+});
+
+updateProduct(1, { // red squiggly line under the entire object
+  description: "A book about Dragons",
+});
+
+updateProduct(1, { // red squiggly line under the entire object
+  name: "Book",
+  price: 12.99,
+});
+
+updateProduct(1, { // red squiggly line under the entire object
+  name: "Book",
+  description: "A book about Dragons",
+});
+
+ 
