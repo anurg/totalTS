@@ -1,9 +1,10 @@
 import { Equal, Expect } from "@total-typescript/helpers";
-declare const DEBUG : {
+declare global {
+    const DEBUG : {
     getState: ()=>{
         id:string
     }
-}
+}}
 
 const state = DEBUG.getState(); // red squiggly line under DEBUG
 
