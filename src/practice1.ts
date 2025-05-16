@@ -1,37 +1,19 @@
-import { Expect, Equal } from "@total-typescript/helpers";
-interface User {
-  id: number;
-  name: string;
-}
+const idToUppercase = (obj: { id: string }) => {
+  return obj.id.toUpperCase();
+};
 
-const users = [
-  {
-    name: "Waqas",
-  },
-  {
-    name: "Zain",
-  },
-];
+const idToInt = (obj: { id: string }) => {
+  return parseInt(obj.id);
+};
 
-
-const usersWithIds: User[] = users.map((user, index) => ({
-  ...user,
-  id: index,
-  age: 30,
-}));
-
-
-const userKeys = usersWithIds.map((user) => {
-  const keys = Object.keys(user);
-
-  type test = Expect<Equal<typeof keys, Array<"id" | "name">>>; // red squiggly line under Equal<>
-  return keys;
+const funcs = [idToUppercase, idToInt];
+const resolveAll = (obj: { id: string }) => {
+  return funcs.map((func) => {
+    return func(obj);
+  });
+};
+const result = resolveAll({
+  id: "hello",
 });
 
-const keys = Object.entries(user).forEach(([key, value]) => {
-  // key is string, and value is any
-});
-
-
-
-
+console.log(result)
