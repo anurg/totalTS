@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
+    "outDir": "./dist",
+    "rootDir": "./src", 
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": [
@@ -11,10 +13,10 @@
     // "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
+    // "noEmit": true,
     "noImplicitOverride": true,
     /* Linting */
     "strict": true,
@@ -24,10 +26,14 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "noUncheckedIndexedAccess": true,
-    "outDir": "/dist",
-    "declaration": true
+    // "declaration": true,
+    // "declarationMap": true,
+    "jsx": "react-jsx"
   },
   "include": [
     "src"
-, "dist/index.js"  ]
+  ],
+  "exclude": [
+    "dist"
+  ]
 }
